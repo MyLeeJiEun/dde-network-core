@@ -61,6 +61,8 @@ DccObject {
                             elide: Text.ElideMiddle
                         }
                         D.ActionButton {
+                            Accessible.id: "CopyBtn"
+                            Accessible.role: Accessible.Button
                             property bool clipboard: false
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Layout.preferredWidth: 30
@@ -119,6 +121,7 @@ DccObject {
                             id: repeater
                             model: infoItem.details
                             delegate: ItemDelegate {
+                                Accessible.id: "ModelData"
                                 implicitHeight: 36
                                 text: modelData[0]
                                 font: D.DTK.fontManager.t6
@@ -130,6 +133,7 @@ DccObject {
                                 leftPadding: 10
                                 rightPadding: 10
                                 content: TextInput {
+                                    Accessible.id: "TextInput"
                                     id: textInput
                                     text: modelData[1]
                                     color: palette.text
@@ -142,7 +146,9 @@ DccObject {
                                         id: menuLoader
                                         active: false
                                         sourceComponent: D.Menu {
+                                            Accessible.id: "Loader_Menu"
                                             D.MenuItem {
+                                                Accessible.id: "Copy"
                                                 text: qsTr("Copy")
                                                 enabled: textInput.selectionStart !== textInput.selectionEnd
                                                 onTriggered: {
@@ -150,6 +156,7 @@ DccObject {
                                                 }
                                             }
                                             D.MenuItem {
+                                                Accessible.id: "SelectAll"
                                                 text: qsTr("Select All")
                                                 onTriggered: {
                                                     textInput.selectAll()
@@ -189,6 +196,8 @@ DccObject {
             pageType: DccObject.Item
             visible: dccData.netCheckAvailable()
             page: NetButton {
+                Accessible.id: "NetworkDetection"
+                Accessible.role: Accessible.Button
                 text: qsTr("Network Detection")
                 Layout.alignment: Qt.AlignRight
                 onClicked: {

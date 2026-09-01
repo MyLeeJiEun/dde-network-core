@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -42,6 +42,8 @@ DccObject {
         }
     }
     PageAirplane {
+        Accessible.id: "NetworkMain_PageAirplane"
+        Accessible.role: Accessible.Grouping
         name: "airplaneMode"
         parentName: "network"
         weight: 3040
@@ -56,18 +58,24 @@ DccObject {
             DelegateChoice {
                 roleValue: NetType.WiredDeviceItem
                 delegate: PageWiredDevice {
+                    Accessible.id: "NetworkMain_PageWiredDevice"
+                    Accessible.role: Accessible.Grouping
                     netItem: model.item
                 }
             }
             DelegateChoice {
                 roleValue: NetType.WirelessDeviceItem
                 delegate: PageWirelessDevice {
+                    Accessible.id: "NetworkMain_PageWirelessDevice"
+                    Accessible.role: Accessible.Grouping
                     netItem: model.item
                 }
             }
             DelegateChoice {
                 roleValue: NetType.VPNControlItem
                 delegate: PageVPN {
+                    Accessible.id: "NetworkMain_PageVPN"
+                    Accessible.role: Accessible.Grouping
                     name: "networkVpn"
                     parentName: "network"
                     weight: 3010
@@ -77,6 +85,8 @@ DccObject {
             DelegateChoice {
                 roleValue: NetType.DSLControlItem
                 delegate: PageDSL {
+                    Accessible.id: "NetworkMain_PageDSL"
+                    Accessible.role: Accessible.Grouping
                     name: "dsl"
                     parentName: "network"
                     weight: 3020
@@ -86,6 +96,8 @@ DccObject {
             DelegateChoice {
                 roleValue: NetType.HotspotControlItem
                 delegate: PageHotspot {
+                    Accessible.id: "NetworkMain_PageHotspot"
+                    Accessible.role: Accessible.Grouping
                     name: "personalHotspot"
                     parentName: "network"
                     isAirplane: dccData.root.isEnabled
@@ -96,6 +108,8 @@ DccObject {
             DelegateChoice {
                 roleValue: NetType.SystemProxyControlItem
                 delegate: PageSystemProxy {
+                    Accessible.id: "NetworkMain_PageSystemProxy"
+                    Accessible.role: Accessible.Grouping
                     name: "systemProxy"
                     parentName: "network"
                     weight: 3050
@@ -105,6 +119,8 @@ DccObject {
             DelegateChoice {
                 roleValue: NetType.AppProxyControlItem
                 delegate: PageAppProxy {
+                    Accessible.id: "NetworkMain_PageAppProxy"
+                    Accessible.role: Accessible.Grouping
                     name: "applicationProxy"
                     parentName: "network"
                     weight: 3060
@@ -114,6 +130,8 @@ DccObject {
             DelegateChoice {
                 roleValue: NetType.DetailsItem
                 delegate: PageDetails {
+                    Accessible.id: "NetworkMain_PageDetails"
+                    Accessible.role: Accessible.Grouping
                     name: "networkDetails"
                     parentName: "network"
                     weight: 3070

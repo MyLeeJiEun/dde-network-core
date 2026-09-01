@@ -28,6 +28,7 @@ DccObject {
             implicitHeight: switchControl.implicitHeight
             implicitWidth: switchControl.implicitWidth
             D.Switch {
+                Accessible.id: "SwitchControl"
                 id: switchControl
                 anchors.fill: parent
                 checked: netItem.isEnabled

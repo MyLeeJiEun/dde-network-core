@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -41,6 +41,7 @@ DccObject {
                     }
 
                     delegate: ItemDelegate {
+                        Accessible.id: "ItemDelegate_2"
                         id: itemDelegate
                         implicitHeight: 36
                         text: model.item.name
@@ -59,6 +60,8 @@ DccObject {
                                 visible: model.item.status === NetType.CS_Connected && !itemDelegate.hovered
                             }
                             NetButton {
+                                Accessible.id: "Disconnect_2"
+                                Accessible.role: Accessible.Button
                                 implicitHeight: implicitContentHeight - 4
                                 topInset: -4
                                 bottomInset: -4
@@ -96,6 +99,8 @@ DccObject {
             }
         }
         PageDSLSettings {
+            Accessible.id: "DslSettings"
+            Accessible.role: Accessible.Grouping
             id: dslSettings
             name: "dslSettings"
             parentName: root.name + "/body/networkList"
@@ -142,6 +147,8 @@ DccObject {
             weight: 40
             pageType: DccObject.Item
             page: NetButton {
+                Accessible.id: "AddPppoEConnection"
+                Accessible.role: Accessible.Button
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Add PPPoE connection")
                 onClicked: {

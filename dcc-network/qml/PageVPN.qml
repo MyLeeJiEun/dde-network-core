@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -24,6 +24,7 @@ DccObject {
     Component {
         id: devCheck
         D.Switch {
+            Accessible.id: "Component_Switch"
             checked: netItem.isEnabled
             enabled: netItem.enabledable
             onClicked: {
@@ -65,6 +66,7 @@ DccObject {
                         }
 
                         delegate: ItemDelegate {
+                            Accessible.id: "ItemDelegate"
                             id: itemDelegate
                             implicitHeight: 36
                             text: model.item.name
@@ -83,6 +85,8 @@ DccObject {
                                     visible: model.item.status === NetType.CS_Connected && !itemDelegate.hovered
                                 }
                                 NetButton {
+                                    Accessible.id: "Disconnect"
+                                    Accessible.role: Accessible.Button
                                     implicitHeight: implicitContentHeight - 4
                                     topInset: -4
                                     bottomInset: -4
@@ -119,6 +123,8 @@ DccObject {
                     }
                 }
                 PageVPNSettings {
+                    Accessible.id: "VpnSettings"
+                    Accessible.role: Accessible.Grouping
                     id: vpnSettings
                     name: "vpnSettings"
                     parentName: root.name + "/menu/body/networkList"
@@ -173,6 +179,8 @@ DccObject {
                 weight: 30
                 pageType: DccObject.Item
                 page: NetButton {
+                    Accessible.id: "ImportVpn"
+                    Accessible.role: Accessible.Button
                     text: qsTr("Import VPN")
                     Layout.alignment: Qt.AlignRight
                     onClicked: {
@@ -229,6 +237,7 @@ DccObject {
                                 horizontalAlignment: Text.AlignHCenter
                             }
                             Button {
+                                Accessible.id: "Ok"
                                 Layout.fillWidth: true
                                 Layout.margins: 10
                                 text: qsTr("OK")
@@ -244,6 +253,8 @@ DccObject {
                 weight: 40
                 pageType: DccObject.Item
                 page: NetButton {
+                    Accessible.id: "AddVpn"
+                    Accessible.role: Accessible.Button
                     text: qsTr("Add VPN")
                     Layout.alignment: Qt.AlignRight
                     onClicked: {

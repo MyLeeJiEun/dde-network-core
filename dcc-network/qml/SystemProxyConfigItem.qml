@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -91,6 +91,7 @@ DccObject {
         weight: 30
         pageType: DccObject.Editor
         page: Switch {
+            Accessible.id: "SystemProxyConfigItem_Switch"
             checked: root.config.auth
             onClicked: {
                 if (root.config.auth !== checked) {
@@ -138,6 +139,8 @@ DccObject {
         weight: 50
         pageType: DccObject.Editor
         page: NetPasswordEdit {
+            Accessible.id: "RootConfigPassword"
+            Accessible.role: Accessible.EditableText
             dataItem: root
             text: root.config.password
             onTextUpdated: root.config.password = text
